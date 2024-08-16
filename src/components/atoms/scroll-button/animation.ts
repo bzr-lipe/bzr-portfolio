@@ -18,7 +18,6 @@ const ScrollButtonAnimation = () => {
     const textsTl = gsap.timeline({
       scrollTrigger: {
         trigger: buttonRef.current,
-        markers: true,
         scrub: true,
         start: 'top-=100 top',
         end: () => '+=50',
