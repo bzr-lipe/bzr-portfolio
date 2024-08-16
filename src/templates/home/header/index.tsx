@@ -4,8 +4,7 @@ import * as S from "./styles";
 import useAnimation from "./animation";
 
 const Header: FC = () => {
-  const { sectionRef, titleRef, firstCaretRef, subtitleRef, isScrolled, isActive} = useAnimation();
-  let target: HTMLElement | null;
+  const { titleRef, firstCaretRef, subtitleRef, scrollDownRef, isScrolled, isActive } = useAnimation();
   const [ targetSection, setTargetSection ] = useState<HTMLElement | null>()
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const Header: FC = () => {
   }, [isScrolled])
 
   return (
-    <S.Header id="header" ref={sectionRef}>
+    <S.Header id="header">
       <S.TextWrapper>
         <S.Title ref={titleRef}>
           <S.Caret ref={firstCaretRef} />
@@ -34,8 +33,8 @@ const Header: FC = () => {
         </S.Title>
         <S.Subtitle ref={subtitleRef}>{C.subtitle}</S.Subtitle>
       </S.TextWrapper>
-      <S.ScrollWrapper>
-        <S.ScrollButton targetSection={targetSection} triggerSection={sectionRef.current} isScrolled={isScrolled} isActive={isActive}/>
+      <S.ScrollWrapper >
+        <S.ScrollButton targetSection={targetSection} isScrolled={isScrolled} isActive={isActive} ref={scrollDownRef} />
       </S.ScrollWrapper>
     </S.Header>
   );

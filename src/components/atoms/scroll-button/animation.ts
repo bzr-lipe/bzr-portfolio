@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 
 
@@ -6,78 +7,54 @@ const ScrollButtonAnimation = () => {
   const downTextRef = useRef<HTMLDivElement>(null);
   const upTextRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLElement>(null);
-  const [ isActive, setIsActive ] = useState<boolean>(false);
-  const [ isScrolled, setIsScrolled ] = useState<boolean>(false);
-  const [ sectionTrigger, setSectionTrigger ] = useState<HTMLElement | undefined>();
-
-  useEffect(() => {
-    if(isActive){
-      gsap.to(buttonRef.current, {autoAlpha: 1, duration: 0.4})
-      return;
-    }
-    gsap.to(buttonRef.current, {autoAlpha: 0, duration: 0.2})
-  }, [isActive])
-
-  useEffect(() => {
-    if(isScrolled){
-      gsap.to(arrowRef.current, {rotate: 225, duration: 0.4})
-      gsap.to(upTextRef.current, {autoAlpha: 1, duration: 0.4})
-      return;
-    }
-    gsap.to(arrowRef.current, {rotate: 45, duration: 0.2})
-    gsap.to(upTextRef.current, {autoAlpha: 0, duration: 0.1})
-  }, [isScrolled])
-
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  
   useEffect(() => {
     const idleTl = gsap.timeline({repeat: -1});
 
-    // const tl = gsap.timeline({ scrollTrigger: {
-    //   trigger: sectionTrigger,
-    //   markers: true,
-    //   start: '80% top',
-    //   end: '+=100',
-    // }});
+    idleTl.to(arrowRef.current, {y: 10, duration: 1})
+    idleTl.to(arrowRef.current, {y: 0, duration: 1})
 
-    // tl.to(titleRef.current, {autoAlpha: 0, duration: 0.4})
-    // tl.to(arrowRef.current, {rotate: 225, duration: 0.4}, ">");
-
-    // idleTl.to(arrowRef.current, {y: 10, duration: 0.6})
-    // idleTl.to(arrowRef.current, {y: 0, duration: 0.6})
-    // console.log(sectionTrigger)
-
-    if(sectionTrigger) {
-      gsap.to(downTextRef.current, {
-        scrollTrigger: {
-          trigger: sectionTrigger,
-          markers: true,
-          scrub: true,
-          start: '70% top',
-          end: '+=100',
-          // onLeave: () => {console.log('oii')}
-        }, 
-        autoAlpha: 0
-      },)
-    }
-
-    
-    const scrollTl = gsap.timeline({
+    const textsTl = gsap.timeline({
       scrollTrigger: {
+        trigger: buttonRef.current,
+        markers: true,
+        scrub: true,
+        start: 'top-=100 top',
+        end: () => '+=50',
+        onLeave: () => {
+          gsap.to(arrowRef.current, { rotate: 225, duration: 0.3});
+          gsap.to(upTextRef.current, {autoAlpha: 1, duration: 0.4});
+        },
+        onEnterBack: () => {
+          gsap.to(arrowRef.current, { rotate: 45, duration: 0.2});
+          gsap.to(upTextRef.current, {autoAlpha: 0, duration: 0.2});
+        }
+      }
+    });
 
-      }}
-    );
+    textsTl.to(downTextRef.current, { autoAlpha: 0 })
 
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: buttonRef.current,
+        start: 'top-=10% top',
+        pin: true,
+        end: 'bottom+=30', 
+        toggleActions: "none play reverse none"
+      }
+    });
+
+    tl.addLabel('end')
+    .to(buttonRef.current, {autoAlpha: 0, duration: 0.2})
     
-  }, [sectionTrigger]);
+  }, [buttonRef]);
 
   return {
     downTextRef,
-    buttonRef,
     upTextRef,
     arrowRef,
-    setIsActive,
-    setIsScrolled,
-    setSectionTrigger
+    buttonRef
   };
 };
 

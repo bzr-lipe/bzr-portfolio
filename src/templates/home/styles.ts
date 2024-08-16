@@ -8,7 +8,7 @@ export const Home = styled.div`
 
 export const Text = styled.p`
   font-size: 10rem;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const Cursor = styled.div`
@@ -19,6 +19,10 @@ export const Cursor = styled.div`
   width: 4rem;
   height: 4rem;
   border-radius: 100%;
-  border: 0.3rem solid ${({ theme }) => theme.colors.purpleMedium};
+  border: 0.3rem solid ${({ theme }) => theme.primaryColor};
   pointer-events: none;
+
+  @media (max-width: 414px) {
+    display: none;
+  }
 `;

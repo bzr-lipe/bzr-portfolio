@@ -8,6 +8,10 @@ export const ScrollButton= styled.button`
   justify-content: center;
   z-index: 1;
   gap: 3rem;
+
+  @media (max-width: 414px) {
+    gap: 2rem;
+  }
 `;
 
 export const Text = styled.p`
@@ -15,11 +19,12 @@ export const Text = styled.p`
   white-space: nowrap;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.textColor};
   font-size: 1.8rem;
 
   @media (max-width: 414px) {
-    font-size: 5rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.12rem;
   }
 `;
 
@@ -29,11 +34,12 @@ export const Arrow = styled.div`
   border-width: 0 0.4rem 0.4rem 0;
   border-style: solid;
   transform: rotate(45deg);
-  border-color: ${({ theme }) => theme.colors.purpleMedium};
+  border-color: ${({ theme }) => theme.primaryColor};
 
   @media (max-width: 414px) {
-    width: 13rem;
-    height: 13rem;
+    border-width: 0 0.3rem 0.3rem 0;
+    width: 2rem;
+    height: 2rem;
   }
 `;
 
@@ -42,4 +48,8 @@ export const ScrollUpText = styled(Text)`
   bottom: -3.5rem;
   visibility: hidden;
   opacity: 0;
+
+  @media (max-width: 414px) {
+
+  }
 `; 

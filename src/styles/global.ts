@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -7,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
   }
 
   html {
@@ -19,12 +19,16 @@ const GlobalStyles = createGlobalStyle`
     @media (max-width: 1024px)  {
       font-size: calc(55vw / 1024 * 10);
     }
+
+    @media (max-width: 414px)  {
+      font-size: calc(100vw / 414 * 10);
+    }
   }
 
   ::-webkit-scrollbar {
     width: 5px;
-    background-color: ${theme.colors.blueYankees};
-    color: ${theme.colors.black};
+    background-color: ${({ theme }) => theme.primaryColor};
+    color: ${({ theme }) => theme.textColor};
 
     @media (max-width: 900px)  {
       width: 4px;
@@ -32,11 +36,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${theme.colors.indigoRainbow};
+    background-color: ${({ theme }) => theme.secondaryColor};
     border-radius: 20px;
 
     &:hover {
-      background-color: ${theme.colors.indigoRainbow};
+      background-color: ${({ theme }) => theme.secondaryColor};
     }
   }
 
@@ -46,7 +50,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     overscroll-behavior: none;
-    background-color: ${theme.colors.blueYankees};
+    background-color: ${({ theme }) => theme.backgroundColor};
   }
 
   main {
@@ -72,13 +76,6 @@ const GlobalStyles = createGlobalStyle`
     font: inherit;
     cursor: none;
     outline: inherit;
-  }
-  
-  input, textarea {
-    appearance: none;
-    border: none;
-    border-radius: none;
-    outline: none;
   }
 `;
 

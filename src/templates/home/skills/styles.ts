@@ -15,7 +15,7 @@ export const Title = styled.div`
   justify-content: right;
   padding: 3rem;
   font-weight: 300;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const Content = styled.div`
@@ -26,7 +26,7 @@ export const Content = styled.div`
   justify-content: right;
   padding: 3rem;
   font-weight: 300;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const Subtitle = styled.h2`
@@ -36,7 +36,7 @@ export const Subtitle = styled.h2`
   visibility: hidden;
   opacity: 0;
   transform: translateY(1rem);
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const SkillsLists = styled.div`
@@ -47,7 +47,7 @@ export const SkillsLists = styled.div`
   justify-content: right;
   padding: 3rem;
   font-weight: 300;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.textColor};
 `;
 
 export const SkillCategory = styled.div`
@@ -68,7 +68,7 @@ export const ListItem = styled.li`
 `;
 
 export const Cursor = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.textColor};
   width: 0.3rem;
   opacity: 0;
   visibility: 0;

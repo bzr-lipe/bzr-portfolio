@@ -4,6 +4,11 @@ export const gotham = localFont({
   variable: '--gotham',
   src: [
     {
+      path: './gotham/gotham-htf-thin.otf',
+      weight: '200',
+      style: 'normal'
+    },
+    {
       path: './gotham/gotham-htf-light.otf',
       weight: '300',
       style: 'normal'
@@ -21,6 +26,11 @@ export const gotham = localFont({
     {
       path: './gotham/gotham-htf-bold.otf',
       weight: '600',
+      style: 'normal'
+    },
+    {
+      path: './gotham/gotham-htf-black.otf',
+      weight: '700',
       style: 'normal'
     }
   ],
