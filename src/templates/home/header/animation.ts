@@ -1,15 +1,11 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 
 const HeaderAnimation = () => {
   const titleRef = useRef<HTMLDivElement>(null);
-  const scrollDownRef = useRef<HTMLButtonElement>(null);
   const firstCaretRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLHeadingElement>(null);
-  const [ isScrolled, setIsScrolled ] = useState<boolean>(false);
-  const [ isActive, setIsActive ] = useState<boolean>(true);
 
 
   useEffect(() => {
@@ -29,7 +25,6 @@ const HeaderAnimation = () => {
     letters.forEach((current, index) => {
       const letter = gsap.utils.selector(current)(`.letter-${index}`);
       const caret = gsap.utils.selector(current)(`.caret-${index}`);
-    
       tl.set(caret[0], {autoAlpha: 1, x: "105%"})
       tl.set(letter[0], {autoAlpha: 1}, ">")
 
@@ -47,35 +42,10 @@ const HeaderAnimation = () => {
     tl.to(subtitleRef.current, { autoAlpha: 1, y: 0, duration: 0.5, delay: 2})
   }, [titleRef]);
 
-  // useEffect(() => {
-  //   // ScrollTrigger.create({
-  //   //   trigger: sectionRef.current,
-  //   //   start: '90% 10%',
-  //   //   end: '+=300',
-  //   //   pin: true,
-  //   //   onToggle: (self) => { 
-  //   //     if(self.progress > 0 ) {
-  //   //       setIsScrolled(true);
-  //   //     }else {
-  //   //       setIsScrolled(false);
-  //   //     }
-  //   //   },
-  //   //   onLeave: (self) => {
-  //   //     setIsActive(self.isActive)
-  //   //   },
-  //   //   onEnterBack: (self) => {
-  //   //     setIsActive(self.isActive)
-  //   //   }
-  //   // })
-  // });
-
   return {
     titleRef,
     firstCaretRef,
-    subtitleRef,
-    scrollDownRef,
-    isActive,
-    isScrolled
+    subtitleRef
   };
 };
 

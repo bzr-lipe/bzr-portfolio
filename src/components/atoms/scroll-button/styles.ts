@@ -6,7 +6,6 @@ export const ScrollButton= styled.button`
   position: relative;
   flex-direction: column;
   justify-content: center;
-  z-index: 1;
   gap: 3rem;
 
   @media (max-width: 414px) {

@@ -4,20 +4,14 @@ import * as S from "./styles";
 import useAnimation from "./animation";
 
 const Header: FC = () => {
-  const { titleRef, firstCaretRef, subtitleRef, scrollDownRef, isScrolled, isActive } = useAnimation();
-  const [ targetSection, setTargetSection ] = useState<HTMLElement | null>()
+  const { titleRef, firstCaretRef, subtitleRef } = useAnimation();
+  const [ beforeSection, setBeforeSection ] = useState<HTMLElement | null>();
+  const [ afterSection, setAfterSection ] = useState<HTMLElement | null>();
 
   useEffect(() => {
-    setTargetSection(document.getElementById('skills'));
-  }, [])
-
-  useEffect(() => {
-    if (isScrolled) {
-      setTargetSection(document.getElementById('header'));
-      return;
-    }
-    setTargetSection(document.getElementById('skills'));
-  }, [isScrolled])
+    setBeforeSection(document.getElementById('skills'))
+    setAfterSection(document.getElementById('header'));
+    }, [])
 
   return (
     <S.Header id="header">
@@ -34,7 +28,7 @@ const Header: FC = () => {
         <S.Subtitle ref={subtitleRef}>{C.subtitle}</S.Subtitle>
       </S.TextWrapper>
       <S.ScrollWrapper >
-        <S.ScrollButton targetSection={targetSection} isScrolled={isScrolled} isActive={isActive} ref={scrollDownRef} />
+        <S.ScrollButton beforeSection={beforeSection} afterSection={afterSection} />
       </S.ScrollWrapper>
     </S.Header>
   );

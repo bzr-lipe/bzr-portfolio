@@ -8,7 +8,8 @@ const ScrollButtonAnimation = () => {
   const upTextRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLParagraphElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  
+  const [ isScrolled, setIsScrolled ] = useState<boolean>(false);
+
   useEffect(() => {
     const idleTl = gsap.timeline({repeat: -1});
 
@@ -24,10 +25,12 @@ const ScrollButtonAnimation = () => {
         onLeave: () => {
           gsap.to(arrowRef.current, { rotate: 225, duration: 0.3});
           gsap.to(upTextRef.current, {autoAlpha: 1, duration: 0.4});
+          setIsScrolled(true)
         },
         onEnterBack: () => {
           gsap.to(arrowRef.current, { rotate: 45, duration: 0.2});
           gsap.to(upTextRef.current, {autoAlpha: 0, duration: 0.2});
+          setIsScrolled(false)
         }
       }
     });
@@ -53,6 +56,7 @@ const ScrollButtonAnimation = () => {
     downTextRef,
     upTextRef,
     arrowRef,
+    isScrolled,
     buttonRef
   };
 };

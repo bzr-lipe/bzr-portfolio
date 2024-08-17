@@ -1,6 +1,4 @@
 export interface ScrollButtonProps {
-  isScrolled: boolean;
-  isActive: boolean;
-  targetSection?: HTMLElement | null;
-  triggerSection?: HTMLElement | null;
+  beforeSection?: HTMLElement | null;
+  afterSection?: HTMLElement | null;
 }

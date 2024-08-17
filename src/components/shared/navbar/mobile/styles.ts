@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import BurgerIcon from "@/components/atoms/burger-icon";
 
 export const NavbarMobile = styled.nav`
   display: flex;
@@ -14,12 +13,12 @@ export const NavbarMobile = styled.nav`
   transform: translateY(-8rem);
   opacity: 0;
   visibility: hidden;
+  overflow: visible;
 
   @media (min-width: 415px) {
     display: none
   }
 `;
-
 
 export const Content = styled.div`
   display: flex;
@@ -28,23 +27,38 @@ export const Content = styled.div`
   padding: 0 3rem 0 4rem;
   align-items: center;
   position: relative;
+  overflow-y: visible;
 `;
 
-export const ButtonWrapper = styled.div``;
+export const ButtonWrapper = styled.div`
+  position: relative;
+  overflow-y: visible;
+`;
 
-export const BurgerMenu = styled(BurgerIcon)<{ $isActive: boolean }>`
+export const BurgerIcon = styled.button`
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  gap: 0.7rem;
   width: 3rem;
   z-index: 2;
 
-  div {
-    background-color: ${({ theme, $isActive }) => $isActive ? theme.menuMobileActiveTextColor : theme.textColor};
-  }
 `;
 
-export const MenuMobile = styled.div<{ $isActive: boolean }>`
-  --before-clip: circle(0% at 50% 0);
+export const Row = styled.div<{ $isActive: boolean }>`
+  width: 100%;
+  height: 0.3rem;
+  border-radius: 8rem;
+  background-color: ${({ theme, $isActive }) => $isActive ? theme.menuMobileActiveTextColor : theme.textColor};`
+  ;
 
-  background-color: ${({ theme }) => theme.menuMobileBackgroundColor};
+
+export const MenuMobile = styled.div`
   position: absolute;
   height: 60vh;
   width: calc(100% - 3rem);
@@ -53,28 +67,43 @@ export const MenuMobile = styled.div<{ $isActive: boolean }>`
   border-radius: 0 4rem 4rem 4rem;
   z-index: 1;
   padding: 2rem 2rem;
-  clip-path: circle(0% at 40px -50px);
-
-  &:before {
-    content: '';
-    transition: background-color 0.3s ease-in, color 0.3s ease-in;
-    display: block;
-    position: absolute;
-    background-color: ${({ theme }) => theme.menuMobileBackgroundColor};
-    top: -6.5rem;
-    left: 0;
-    width: 8rem;
-    height: 8rem;
-    border-radius: 2rem 2rem 0 0;
-    z-index: -1;
-    clip-path: var(--before-clip);
-  }
+  overflow-y: visible;
 `;
+
+export const MenuBackground = styled.div`
+  background-color: ${({ theme }) => theme.menuMobileBackgroundColor};
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 0 4rem 4rem 4rem;
+  z-index: -1;
+  /* clip-path: circle(100% at 40px -50px);; */
+
+  clip-path: circle(0% at 40px -50px);;
+  /* clip-path: circle(150% at 40px -50px); */
+`;
+
+export const ButtonBackground = styled.div`
+  position: absolute;
+  top: -6rem;
+  left: 0;
+  width: 8rem;
+  height: 6rem;
+  border-radius: 2rem 2rem 0 0;
+  background-color: ${({ theme }) => theme.menuMobileBackgroundColor};
+  z-index: 2;
+  clip-path: circle(0% at 50% 0);
+  clip-rule: evenodd;
+  /* clip-path: circle(100% at 50% 0); */
+`;
+
 
 export const CornerMenu = styled.svg`
   position: absolute;
-  top: -2.8rem;
-  left: 7.8rem;
+  bottom: 0;
+  right: -2.9rem;
   transform: rotate(-90deg);
   width: 3rem;
   height: 3rem;
@@ -87,6 +116,7 @@ export const CornerMenu = styled.svg`
 export const MenuList = styled.div`
   display: flex;
   flex-direction: column;
+  z-index: 2;
 `;
 
 export const ListItem = styled.a`
@@ -94,6 +124,8 @@ export const ListItem = styled.a`
   font-size: 3.5rem;
   font-weight: 300;
   width: 100%;
+  opacity: 0;
+  visibility: hidden;
   border-bottom: 0.1rem solid ${({ theme }) => theme.menuMobileActiveTextColor};
   padding: 2rem 0;
 `;
