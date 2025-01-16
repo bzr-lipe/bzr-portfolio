@@ -54,9 +54,8 @@ export const Row = styled.div<{ $isActive: boolean }>`
   width: 100%;
   height: 0.3rem;
   border-radius: 8rem;
-  background-color: ${({ theme, $isActive }) => $isActive ? theme.menuMobileActiveTextColor : theme.textColor};`
+  background-color: ${({ theme, $isActive }) => $isActive ? theme.white : theme.white};`
   ;
-
 
 export const MenuMobile = styled.div`
   position: absolute;
@@ -71,7 +70,7 @@ export const MenuMobile = styled.div`
 `;
 
 export const MenuBackground = styled.div`
-  background-color: ${({ theme }) => theme.menuMobileBackgroundColor};
+  background-color: ${({ theme }) => theme.indigoRainbow};
   position: absolute;
   height: 100%;
   width: 100%;
@@ -92,7 +91,7 @@ export const ButtonBackground = styled.div`
   width: 8rem;
   height: 6rem;
   border-radius: 2rem 2rem 0 0;
-  background-color: ${({ theme }) => theme.menuMobileBackgroundColor};
+  background-color: ${({ theme }) => theme.indigoRainbow};
   z-index: 2;
   clip-path: circle(0% at 50% 0);
   clip-rule: evenodd;
@@ -109,7 +108,7 @@ export const CornerMenu = styled.svg`
   height: 3rem;
 
   rect, path {
-    fill: ${({ theme }) => theme.menuMobileBackgroundColor};
+    fill: ${({ theme }) => theme.indigoRainbow};
   }
 `;
 
@@ -120,12 +119,12 @@ export const MenuList = styled.div`
 `;
 
 export const ListItem = styled.a`
-  color: ${({ theme }) => theme.menuMobileActiveTextColor};
+  color: ${({ theme }) => theme.white};
   font-size: 3.5rem;
   font-weight: 300;
   width: 100%;
   opacity: 0;
   visibility: hidden;
-  border-bottom: 0.1rem solid ${({ theme }) => theme.menuMobileActiveTextColor};
+  border-bottom: 0.1rem solid ${({ theme }) => theme.white};
   padding: 2rem 0;
 `;

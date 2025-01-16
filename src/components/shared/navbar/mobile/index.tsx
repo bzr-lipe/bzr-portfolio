@@ -2,10 +2,9 @@ import { FC } from "react";
 import C from "../const";
 import * as S from "./styles";
 import useAnimation from "./animation";
-import ToggleButton from "../toggle-button";
 
 const NavbarMobile: FC = () => {
-  const { navRef, menuMobileRef, buttonBackgroundRef, menuButtonRef, menuBackgroundRef, listRef, isActive, toggleMenu,  } = useAnimation();
+  const { navRef, menuMobileRef, buttonBackgroundRef, menuButtonRef, menuBackgroundRef, listRef, isActive, toggleMenu  } = useAnimation();
 
   return (
     <S.NavbarMobile ref={navRef} >
@@ -18,7 +17,6 @@ const NavbarMobile: FC = () => {
               ))}
             </S.BurgerIcon>
         </S.ButtonWrapper>
-        <ToggleButton />
           <S.MenuMobile ref={menuMobileRef}>
             <S.ButtonBackground ref={buttonBackgroundRef}>
               <S.CornerMenu viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">

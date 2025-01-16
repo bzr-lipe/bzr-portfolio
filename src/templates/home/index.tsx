@@ -6,6 +6,7 @@ import * as S from "./styles";
 import Header from "./header";
 import Skills from "./skills";
 import Navbar from "@/components/shared/navbar";
+import AboutMe from "./about-me";
 
 const HomeTemplate: FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -31,7 +32,7 @@ const HomeTemplate: FC = () => {
     const handleMouseEnter = () => {
       gsap.to(cursorRef.current, {
         scale: 0.7,
-        backgroundColor: theme.primaryColor,
+        backgroundColor: theme.purpleMedium,
         duration: 0.1,
         ease: "power1",
       });
@@ -50,7 +51,7 @@ const HomeTemplate: FC = () => {
       element.addEventListener("mouseenter", handleMouseEnter);
       element.addEventListener("mouseleave", handleMouseLeave);
     });
-  }, [theme.primaryColor]);
+  }, [theme.purpleMedium]);
 
   return (
     <main>
@@ -58,6 +59,7 @@ const HomeTemplate: FC = () => {
         <Navbar />
         <Header />
         <Skills />
+        <AboutMe />
         <S.Cursor ref={cursorRef} />
       </S.Home>
     </main>

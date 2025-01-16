@@ -16,33 +16,10 @@ export const colors = {
     transparent: "rgba(255, 255, 255, 0)"
 };
 
-export const darkTheme = {
-  backgroundColor: colors.blueYankees,
-  textColor: colors.white,
-  primaryColor: colors.purpleMedium,
-  secondaryColor: colors.indigoRainbow,
-  navBackgroundColor: colors.whiteSemiTransparent,
-  navTextColor: colors.black,
-  navBorderColor: colors.whiteHalf,
-  menuMobileActiveTextColor: colors.white,
-  menuMobileBackgroundColor: colors.indigoRainbow,
-};
-
-export const lightTheme = {
-  backgroundColor: colors.white,
-  textColor: colors.black,
-  primaryColor: colors.black,
-  secondaryColor: colors.purpleMedium,
-  navBackgroundColor: colors.blackSemiTransparent,
-  navTextColor: colors.white,
-  navBorderColor: colors.blackHalf,
-  menuMobileActiveTextColor: colors.white,
-  menuMobileBackgroundColor: colors.black,
-};
-
+export default colors;
 
 export type ColorFamily = keyof typeof colors;
-export type Theme = typeof darkTheme;
+type Theme = typeof colors;
 
 declare module 'styled-components' {
   export interface DefaultTheme extends Theme {}

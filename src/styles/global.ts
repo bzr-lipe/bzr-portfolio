@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    transition: background-color 0.3s ease-in, color 0.3s ease-in;
+    transition: background-color 0.3s ease-in, color 0.1s ease-in-out;
   }
 
   html {
@@ -27,8 +27,8 @@ const GlobalStyles = createGlobalStyle`
 
   ::-webkit-scrollbar {
     width: 5px;
-    background-color: ${({ theme }) => theme.primaryColor};
-    color: ${({ theme }) => theme.textColor};
+    background-color: ${({ theme }) => theme.purpleMedium};
+    color: ${({ theme }) => theme.white};
 
     @media (max-width: 900px)  {
       width: 4px;
@@ -36,21 +36,16 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.secondaryColor};
+    background-color: ${({ theme }) => theme.indigoRainbow};
     border-radius: 20px;
 
     &:hover {
-      background-color: ${({ theme }) => theme.secondaryColor};
+      background-color: ${({ theme }) => theme.indigoRainbow};
     }
-  }
-
-  html, body, #__next {
-    height: 100%;
   }
 
   body {
     overscroll-behavior: none;
-    background-color: ${({ theme }) => theme.backgroundColor};
   }
 
   main {

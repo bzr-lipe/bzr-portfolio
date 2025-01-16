@@ -8,18 +8,18 @@ export const Home = styled.div`
 
 export const Text = styled.p`
   font-size: 10rem;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }) => theme.white};
 `;
 
 export const Cursor = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   left: 0;
   top: 0;
   width: 4rem;
   height: 4rem;
   border-radius: 100%;
-  border: 0.3rem solid ${({ theme }) => theme.primaryColor};
+  border: 0.3rem solid ${({ theme }) => theme.purpleMedium};
   pointer-events: none;
 
   @media (max-width: 414px) {
