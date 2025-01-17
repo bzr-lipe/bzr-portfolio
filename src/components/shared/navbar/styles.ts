@@ -12,8 +12,8 @@ export const Navbar = styled.nav`
   align-items: center;
   z-index: 3;
   padding: 0 3rem;
-  height: 7rem;
-  border-radius: 5rem;
+  height: 5.5rem;
+  border-radius: 1.5rem;
   box-shadow: 0 0.2rem 2rem -0.5rem ${({ theme }) => theme.whiteSemiTransparent};
   transform: translateX(-110%);
   border: 0.1rem solid ${({ theme }) => theme.whiteHalf};
@@ -26,7 +26,7 @@ export const Navbar = styled.nav`
     background-color: ${({ theme }) => theme.whiteSemiTransparent};
     backdrop-filter: blur(5px) saturate(200%);
     filter: invert(1) hue-rotate(180deg);
-    border-radius: 5rem;
+    border-radius: 1.5rem;
     box-shadow: 0 0.2rem 2rem -0.5rem ${({ theme }) => theme.whiteSemiTransparent};
   }
 
@@ -50,4 +50,34 @@ export const Link = styled.p`
   color: ${({ theme }) => theme.black};
 
   filter: invert(1) hue-rotate(180deg);
+`;
+
+export const IconsContainer = styled.div`
+  display: flex;
+  gap: 4rem;
+`;
+
+export const Anchor = styled.a`
+  height: 3rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  isolation: isolate;
+`;
+
+export const Icon = styled.img`
+  height: 100%;
+`;
+
+export const Subtitle = styled.div`
+  position: absolute;
+  background-color: ${({ theme }) => theme.purpleMedium};
+  color: ${({ theme }) => theme.white};
+  white-space: nowrap;
+  width: fit-content;
+  font-size: 1.6rem;
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
 `;

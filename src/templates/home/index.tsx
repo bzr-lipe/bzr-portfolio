@@ -58,7 +58,7 @@ const HomeTemplate: FC = () => {
       <S.Home>
         <Navbar />
         <Header />
-        <Skills />
+        {/* <Skills /> */}
         <AboutMe />
         <S.Cursor ref={cursorRef} />
       </S.Home>

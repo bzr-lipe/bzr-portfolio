@@ -70,7 +70,6 @@ const SkillsAnimation = () => {
       ScrollTrigger.create({
         trigger: cardRef.current,
         preventOverlaps: true,
-        markers: {startColor: 'blue', endColor: 'white'},
         start: 'top+=20% bottom',
         end: '+=30%',
         once: true,

@@ -73,7 +73,6 @@ const HeaderAnimation = () => {
           scrollTrigger: {
             trigger: cardRef.current,
             scrub: 0.5,
-            markers: true,
             start: `bottom+=6 bottom`,
             preventOverlaps: true,
             end: '+=30%'

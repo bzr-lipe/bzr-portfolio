@@ -4,6 +4,7 @@ export const colors = {
     black: "#000",
     blackSemiTransparent: "rgba(0, 0, 0, 0.3)",
     blackHalf: "rgba(0, 0, 0, 0.5)",
+    blackHalfFull: "rgba(0, 0, 0, 0.7)",
     blueYankees: "#17153B",
     indigoRainbow: "#2E236C",
     violetTropical: "#C8ACD6",
