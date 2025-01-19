@@ -1,6 +1,10 @@
 const headerC = {
   title: ["b", "z", "r", ".", "l", "i", "p", "e"],
-  subtitle: 'Front-end Developer',
+  subtitle: (
+    <>
+      <span>Front-end</span> Developer
+    </>
+  ),
   marquee: [
     'FRONT-END DEVELOPER',
     'MOBILE DEVELOPER',

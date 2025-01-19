@@ -1,7 +1,13 @@
-'use client'
-
-
 export default function Loading() {
-  return 'haha';
-};
-
+  return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundColor: '#f0f0f0',
+    }}>
+      <h1>Loading...</h1>
+    </div>
+  );
+}

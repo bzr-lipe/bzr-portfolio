@@ -1,5 +1,5 @@
 'use client'
-import { FC, useEffect, useRef } from "react";
+import { FC, lazy, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useTheme } from 'styled-components'
 import * as S from "./styles";
@@ -7,6 +7,8 @@ import Header from "./header";
 import Skills from "./skills";
 import Navbar from "@/components/shared/navbar";
 import AboutMe from "./about-me";
+
+const SomeComponent = lazy(() => import('./header'));
 
 const HomeTemplate: FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -58,7 +60,7 @@ const HomeTemplate: FC = () => {
       <S.Home>
         <Navbar />
         <Header />
-        {/* <Skills /> */}
+        <Skills />
         <AboutMe />
         <S.Cursor ref={cursorRef} />
       </S.Home>

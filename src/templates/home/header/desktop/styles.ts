@@ -13,8 +13,29 @@ export const Header = styled.header`
   background-color: ${({ theme }) => theme.white};
 
   @media (max-width: 414px) {
-    height: 95vh;
+    display: none;
   }
+`;
+
+export const LinesContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: fit-content;
+  height: 100%;
+  gap: 17rem;
+`;
+
+export const Line = styled.div`
+  height: 0;
+  width: 0.05rem;
+  transform: rotate(45deg);
+  opacity: 1;
+  display: flex;
+  background-color: ${({ theme }) => theme.indigoRainbow};
 `;
 
 export const BackgroundMarquee = styled.div`
@@ -41,10 +62,6 @@ export const MarqueeText = styled.p`
   font-weight: 500;
   white-space: nowrap;
   color: ${({ theme }) => theme.indigoRainbow};
-
-  @media (max-width: 414px) {
-    font-size: 7rem;
-  }
 `;
 
 export const CardContainer = styled.div`
@@ -52,17 +69,10 @@ export const CardContainer = styled.div`
   display: flex;
   align-items: center;
   z-index: 2;
+  overflow: hidden;
   width: 100%;
   position: relative;
   background-color: ${({ theme }) => theme.blueYankees};
-
-  @media (max-width: 414px) {
-    height: 95vh;
-  }
-
-  &:hover {
-
-  }
 `;
 
 export const TextWrapper = styled.div`
@@ -79,16 +89,19 @@ export const Title = styled.div`
 `;
 
 export const Subtitle = styled.h2`
-  font-size: 4rem;
+  font-size: 3.2rem;
   font-weight: 300;
   padding: 1rem 0 0 0.3rem;
   visibility: hidden;
   opacity: 0;
   transform: translateY(1rem);
   color: ${({ theme }) => theme.white};
+  transition: color 0.2s ease-in-out;
 
-  @media (max-width: 414px) {
-    font-size: 1.8rem;
+  &:hover {
+    span {
+      color: ${({ theme }) => theme.purpleMedium};
+    }
   }
 `;
 
@@ -100,14 +113,9 @@ export const LetterWrapper = styled.div< { className: string }>`
 export const Caret = styled.div`
   background-color: ${({ theme }) => theme.white};
   width: 0.3rem;
-  height: 90%;
+  height: 12rem;
   opacity: 0;
-  padding-bottom: 1rem;
   visibility: hidden;
-
-  @media (max-width: 414px) {
-    width: 0.2rem;
-  }
 `;
 
 export const Letter = styled.span`
@@ -115,9 +123,10 @@ export const Letter = styled.span`
   color: ${({ theme }) => theme.white};
   opacity: 0;
   visibility: hidden;
+  transition: color 0.1s ease-in-out;
 
-  @media (max-width: 414px) {
-    font-size: 5rem;
+  &:hover {
+    color: ${({ theme }) => theme.purpleMedium};
   }
 `;
 
@@ -127,6 +136,8 @@ export const ScrollWrapper = styled.div`
   display: flex;
   justify-content: center;
   bottom: 8rem;
+  opacity: 0;
+  visibility: hidden;
 
   @media (max-width: 414px) {
     bottom: 0rem;

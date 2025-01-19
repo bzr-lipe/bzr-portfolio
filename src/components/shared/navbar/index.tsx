@@ -37,23 +37,15 @@ const Navbar: FC = () => {
 
   return (
     <>
-      <S.Navbar ref={navRef}>
-        {/* <S.LinksContainer>
-          {C.links.map((item, index) => (
-            <S.Link key={index}>{item.title}</S.Link>
-          ))}
-        </S.LinksContainer> */}
-        <S.IconsContainer>
-          {C.anchors.map((item, index) => (
-            // <S.Anchor>
-            //   <S.Icon src={item.iconSrc} />
-            //   <S.Subtitle>{item.alt}</S.Subtitle>
-            // </S.Anchor>
-            <NavbarIcon item={item} key={index}/>
-          ))}
-        </S.IconsContainer>
-      </S.Navbar>
-      <NavbarMobile />
+    <S.NavbarContainer>
+        <S.Navbar ref={navRef}>
+          <S.IconsContainer>
+            {C.anchors.map((item, index) => (
+              <NavbarIcon item={item} key={index}/>
+            ))}
+          </S.IconsContainer>
+        </S.Navbar>
+      </S.NavbarContainer>
     </>
   );
 

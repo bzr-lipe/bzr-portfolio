@@ -27,16 +27,6 @@ const SkillsAnimation = () => {
           duration: 1,
           scale: true,
           ease: "power1.inOut",
-          onStart: () => {
-            // if(innerHeight) {
-            //   gsap.to(window, {
-            //     scrollTo: {
-            //       y: innerHeight
-            //     },
-            //     delay: 1
-            //   });
-            // }
-          },
           onComplete: () => {
             document.body.style.overflow= 'auto';
           }
@@ -44,33 +34,11 @@ const SkillsAnimation = () => {
       }
     }
   })
-
-  // const categoryTl = gsap.timeline({ 
-  //   paused: true,
-  //   onComplete: () => {
-  //     if (cardRef.current) {
-  //       console.log('terminei')
-  //       const state = Flip.getState(cardRef.current);
-  //       cardRef.current.classList.remove('fullscreen');
-  //       cardRef.current.classList.add('animated');
-  //       Flip.from(state, {
-  //         duration: 1,
-  //         scale: true,
-  //         ease: "power1.inOut",
-  //         onComplete: () => {
-  //           document.body.style.overflow= 'auto';
-  //         }
-  //       });
-  //     }
-  //   }
-  //  });
-
   useEffect(() => {
     if(cardRef.current && sectionRef.current) {
       ScrollTrigger.create({
         trigger: cardRef.current,
         preventOverlaps: true,
-        markers: {startColor: 'blue', endColor: 'white'},
         start: 'top+=20% bottom',
         end: '+=30%',
         once: true,
@@ -138,7 +106,7 @@ const SkillsAnimation = () => {
 
         categoryTl.set(title, { width: widthNum });
 
-        categoryTl.to(words, {y: 0, duration: 0.5, stagger: 0.4}, ">")
+        categoryTl.to(words, {y: 0, duration: 0.4, stagger: 0.4}, ">")
 
         categoryTl.to(title, { left: '3rem' }, ">+=0.3")
 
@@ -168,9 +136,6 @@ const SkillsAnimation = () => {
         hoverTl.to(border, {xPercent: 120, duration: 0.1})
 
         mainTimeline.add(categoryTl, index * 3);
-
-        // category.addEventListener("mouseenter", () => { !categoryTl.isActive() && hoverTl.play()});
-        // category.addEventListener("mouseleave", () => { !categoryTl.isActive() && hoverTl.reverse()});
       }
     )}
   }, [listRef]);

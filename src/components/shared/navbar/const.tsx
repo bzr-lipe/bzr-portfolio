@@ -1,18 +1,4 @@
 const navbarC = {
-  links: [
-    {
-      title: 'Sobre'
-    },
-    {
-      title: 'Skills'
-    },
-    {
-      title: 'Projetos'
-    },
-    {
-      title: 'Contato'
-    }
-  ],
   anchors: [
     {
       iconSrc: './svgs/navbar/home.svg',

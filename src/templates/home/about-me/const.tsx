@@ -31,15 +31,23 @@ const aboutMeC = {
       <span>about</span> I am a developer based in São Paulo, Brazil focused on creating interactive digital experiences on the web, working with brands and industry Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vel ligula sit amet purus Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </>
   ),
+  description2: [
+    <><span>about</span> I am a developer based in São Paulo, Brazil</>,
+    'focused on creating interactive digital experiences',
+    'on the web, working with brands and industry Lorem',
+    'ipsum dolor sit amet, consectetur adipiscing elit.',
+    'Aliquam vel ligula sit amet purus Lorem ipsum dolor',
+    'sit amet, consectetur adipiscing elit.'
+  ],
   stats: [
-    <>
-      +02
-      <span>YEARS OF <br /> EXPERIENCE</span>
-    </>,
-    <>
-      +15
-      <span>PROJECTS <br />COMPLETED</span>
-    </>,
+    {
+      value: 2,
+      subtitle: <>YEARS OF <br /> EXPERIENCE</>
+    },
+    {
+      value: 15,
+      subtitle: <>PROJECTS <br />COMPLETED</>
+    }
   ]
 };
 

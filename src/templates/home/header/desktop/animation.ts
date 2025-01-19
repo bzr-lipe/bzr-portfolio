@@ -10,6 +10,8 @@ const HeaderAnimation = () => {
   const cardRef = useRef<HTMLDivElement>(null);
   const firstCaretRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLHeadingElement>(null);
+  const linesRef = useRef<HTMLDivElement>(null);
+  const scrollButtonRef = useRef<HTMLDivElement>(null);
   const { innerWidth, innerHeight, outerHeight, outerWidth } = useWindowSize();
 
   useEffect(() => {
@@ -39,19 +41,7 @@ const HeaderAnimation = () => {
     }
 
     const textTl = gsap.timeline({duration: 0.4, delay: 1});
-    const scrollTl = gsap.timeline(
-    //   {
-    //   scrollTrigger: {
-    //     trigger: sectionRef.current,
-    //     scrub: 0.5,
-    //     markers: true,
-    //     start: `bottom+=10% bottom`,
-    //     endTrigger: document.getElementById('skills'),
-    //     preventOverlaps: true,
-    //     end: '+300'
-    //   },
-    // }
-  );
+    const scrollTl = gsap.timeline();
 
     if(sectionRef.current) {
       scrollTl.add(() => {
@@ -79,22 +69,19 @@ const HeaderAnimation = () => {
           }
         })
       })
-      // scrollTl.to(cardRef.current, {
-      //   scale: 0.85,
-      //   yPercent: 30
-      // }, 0)
     }
 
     const caretTl = gsap.timeline({totalDuration: 0.2, repeat: 2, paused: false})
+    const letters = gsap.utils.selector(titleRef.current)('.letter');
 
     caretTl.set(firstCaretRef.current, {autoAlpha: 1})
     caretTl.to(firstCaretRef.current, {autoAlpha: 0})
 
-    const letters = gsap.utils.selector(titleRef.current)('.letter');
 
     letters.forEach((current, index) => {
       const letter = gsap.utils.selector(current)(`.letter-${index}`);
       const caret = gsap.utils.selector(current)(`.caret-${index}`);
+
       textTl.set(caret[0], {autoAlpha: 1, x: "105%"})
       textTl.set(letter[0], {autoAlpha: 1}, ">")
 
@@ -103,13 +90,22 @@ const HeaderAnimation = () => {
 
         idleTl.set(caret[0], {autoAlpha: 1,  x: 15})
         idleTl.set(caret[0], {autoAlpha: 0}, ">")
-        // textTl.to(caret[0], {scale: 2}, ">")
       } else {
         textTl.to(caret[0], {autoAlpha: 0}, ">")
       }
     })
     
     textTl.to(subtitleRef.current, { autoAlpha: 1, y: 0, duration: 0.5, delay: 1})
+
+    if (linesRef.current) {
+      const lines = gsap.utils.toArray(linesRef.current.children);
+
+      gsap.to(lines, {height: '250rem', stagger: 0.1});
+    }
+
+
+    textTl.to(scrollButtonRef.current, { autoAlpha: 1, duration: 0.3 })
+
   }, []);
 
   return {
@@ -118,7 +114,9 @@ const HeaderAnimation = () => {
     titleRef,
     marqueeRef,
     firstCaretRef,
-    subtitleRef
+    subtitleRef,
+    linesRef,
+    scrollButtonRef
   };
 };
 
