@@ -167,7 +167,6 @@ const SkillsAnimation = () => {
     const page2Tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        markers: true,
         start: "top+=20% top",
       }
     })
