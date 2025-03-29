@@ -12,7 +12,7 @@ const HeaderAnimation = () => {
   const subtitleRef = useRef<HTMLHeadingElement>(null);
   const linesRef = useRef<HTMLDivElement>(null);
   const scrollButtonRef = useRef<HTMLDivElement>(null);
-  const { innerWidth, innerHeight, outerHeight, outerWidth } = useWindowSize();
+  const { innerHeight } = useWindowSize();
 
   useEffect(() => {
     if(marqueeRef.current) {
@@ -104,9 +104,8 @@ const HeaderAnimation = () => {
     }
 
 
-    textTl.to(scrollButtonRef.current, { autoAlpha: 1, duration: 0.3 })
-
-  }, []);
+    textTl.to(scrollButtonRef.current, { autoAlpha: 1, duration: 0.3 });
+  }, [innerHeight]);
 
   return {
     sectionRef,

@@ -26,3 +26,8 @@ export const Cursor = styled.div`
     display: none;
   }
 `;
+
+export const FantasySection = styled.section`
+  height: 100vh;
+  background-color: ${({ theme }) => theme.white};
+`

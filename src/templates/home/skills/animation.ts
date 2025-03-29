@@ -6,7 +6,6 @@ import Flip from "gsap/dist/Flip";
 import { useWindowSize } from "rooks";
 import { scrollTo } from "@/utils/scroll-to";
 
-
 const SkillsAnimation = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -14,7 +13,7 @@ const SkillsAnimation = () => {
   const categoryRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLHeadingElement>(null);
-  const { innerWidth, innerHeight, outerHeight, outerWidth } = useWindowSize();
+  const { innerHeight } = useWindowSize();
   
   const mainTimeline = gsap.timeline({
     paused: true,
@@ -34,6 +33,7 @@ const SkillsAnimation = () => {
       }
     }
   })
+
   useEffect(() => {
     if(cardRef.current && sectionRef.current) {
       ScrollTrigger.create({
@@ -68,7 +68,7 @@ const SkillsAnimation = () => {
         }
       });
     }
-  }, []);
+  }, [innerHeight, mainTimeline]);
 
   useEffect(() => {
     if(listRef.current && cardRef.current) {
@@ -138,7 +138,7 @@ const SkillsAnimation = () => {
         mainTimeline.add(categoryTl, index * 3);
       }
     )}
-  }, [listRef]);
+  }, [listRef, mainTimeline]);
 
   return {
     sectionRef,

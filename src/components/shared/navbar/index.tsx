@@ -2,7 +2,6 @@ import { FC, useRef } from "react";
 import C from "./const";
 import * as S from "./styles";
 import useAnimation from "./animation";
-import NavbarMobile from "./mobile";
 import gsap from "gsap";
 
 

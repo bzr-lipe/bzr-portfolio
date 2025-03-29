@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
 
   ::-webkit-scrollbar {
     width: 5px;
-    background-color: ${({ theme }) => theme.purpleMedium};
+    background-color: ${({ theme }) => theme.indigoRainbow};
     color: ${({ theme }) => theme.white};
 
     @media (max-width: 900px)  {
@@ -36,11 +36,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: ${({ theme }) => theme.indigoRainbow};
+    background-color: ${({ theme }) => theme.purpleMedium};
     border-radius: 20px;
 
     &:hover {
-      background-color: ${({ theme }) => theme.indigoRainbow};
+      background-color: ${({ theme }) => theme.purpleMedium};
     }
   }
 

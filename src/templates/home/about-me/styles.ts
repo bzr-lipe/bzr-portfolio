@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const AboutMe = styled.div`
-  height: calc(100vh + 7rem);
+  height: fit-content;
   width: 100%;
   position: relative;
   z-index: 1;
   display: flex;
   align-items: center;
+  padding-top: 20rem;
   justify-content: center;
   background-color: ${({ theme }) => theme.blueYankees};
 
@@ -37,12 +38,13 @@ export const StripeText = styled.span`
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
+  display: flex;  
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: fit-content;
   margin-top: 7rem;
+  padding: 0 0 27rem 35rem;
 
   @media (max-width: 414px) {
     flex-direction: column;
@@ -52,6 +54,17 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   display: flex;
+`;
+
+export const CardColumn = styled.div`
+  height: fit-content;
+  display: flex;
+`;
+
+export const InfosColumn = styled.div`
+  height: fit-content;
+  position: relative;
+  width: 100%;
 `;
 
 export const Card = styled.div`
@@ -70,7 +83,7 @@ export const Card = styled.div`
   border-radius: 2rem;
   background-image: url('./svgs/about-me/topography.svg');
   opacity: 0;
-  visibility: 0;
+  visibility: hidden;
 
   &:before {
     content: '';
@@ -167,6 +180,8 @@ export const SocialMediaIcon = styled.img`
 
 export const Informations = styled.div`
   margin-left: 5rem;
+  margin-bottom: 10rem;
+  z-index: 3;
   display: flex;
   flex-direction: column;
 
@@ -178,6 +193,7 @@ export const Informations = styled.div`
 
 export const Title = styled.div`
   overflow: hidden;
+  z-index: 2;
 
   @media (max-width: 414px) {
     margin-top: 2rem;
@@ -214,7 +230,8 @@ export const Subtitle = styled.span`
   color: ${({ theme }) => theme.white};
   display: block;
   opacity: 0;
-  visibility: 0;
+  visibility: hidden;
+  z-index: 2;
 
   @media (max-width: 414px) {
     font-size: 1.7rem;
@@ -229,6 +246,7 @@ export const Description = styled.div`
   font-weight: 300;
   color: ${({ theme }) => theme.white};
   display: block;
+  z-index: 2;
   max-width: 50rem;
 
   span {
@@ -282,6 +300,7 @@ export const DescriptionLine = styled.div`
 export const Stats = styled.div`
   display: flex;
   gap: 4rem;
+  z-index: 2;
 `;
 
 export const Stat = styled.div`
@@ -329,4 +348,131 @@ export const StatSubtitle = styled.span`
   display: block;
   font-weight: 400;
   color: ${({ theme }) => theme.purpleMedium};
-`
+`;
+
+//////////////////////
+
+export const ContentPage2 = styled.div`
+  margin-left: 5rem;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: fit-content;
+`;
+
+export const TitleContainer = styled.div`
+
+`;
+
+export const TitleLine = styled.p`
+  font-size: 4.8rem;
+  line-height: 4.5rem;
+  display: flex;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.white};
+  gap: 1.3rem;
+  overflow: hidden;
+`;
+
+export const Title2Letter = styled.span`
+  transform: translateY(100%);
+  white-space: nowrap;
+
+  span {
+    font-size: 2.4rem;
+    line-height: 2rem;
+    color: ${({ theme }) => theme.purpleMedium};
+  }
+`;
+
+export const Experiences = styled.div`
+  width: 70rem;
+  margin-top: 3rem;
+  padding-left: 7rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  overflow: hidden;
+`;
+
+export const TimelineCover = styled.div`
+  width: 2rem;
+  position: absolute;
+  height: 100%;
+  background-color: ${({ theme }) => theme.blueYankees};
+  left: 2rem;
+  top: 3rem;
+  z-index: 1;
+`;
+
+export const Experience = styled.div`
+  color: ${({ theme }) => theme.white};
+  position: relative;
+
+  &:first-child {
+    &::after {
+      content: '';
+      width: 0.1rem;
+      top: 51%;
+      left: -4.35rem;
+      height: 130rem;
+      z-index: 0;
+      position: absolute;
+      background-color: ${({ theme }) => theme.white};
+    }
+
+    &::before {
+      background-color: ${({ theme }) => theme.purpleMedium};
+    }
+  }
+
+  &::before {
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    top: 50%;
+    left: -5rem;
+    position: absolute;
+    background-color: ${({ theme }) => theme.white};
+    border-radius: 50%;
+    z-index: 1;
+  }
+`;
+
+export const ExperienceTitle = styled.p`
+  font-size: 3.2rem;
+  font-weight: 300;
+`;
+
+export const ExperienceCompany = styled.p`
+  font-size: 2.8rem;
+  color: ${({ theme }) => theme.purpleMedium};
+  font-weight: 600;
+`;
+
+export const ExperienceSkills = styled.div`
+  display: flex;
+  margin-top: 1rem;
+  gap: 1rem;
+`;
+
+export const ExperienceSkill = styled.div`
+  font-size: 1.1rem;
+  border: 0.1rem solid ${({ theme }) => theme.white};
+  padding: 0.5rem 1rem;
+  border-radius: 3rem;
+`;
+
+export const ExperienceDescription = styled.p`
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-top: 2rem;
+`;
+
+export const ExperienceDates = styled.p`
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  color: ${({ theme }) => theme.purpleMedium};
+`;
