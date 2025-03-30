@@ -27,6 +27,11 @@ export const TopStripe = styled.div`
   flex-wrap: nowrap;
   height: 7rem;
   gap: 6rem;
+
+  @media (max-width: 414px) {
+    gap: 3rem;
+    height: 3.7rem;
+  }
 `;
 
 export const StripeText = styled.span`
@@ -35,6 +40,10 @@ export const StripeText = styled.span`
   text-transform: uppercase;
   white-space: nowrap;
   color: ${({ theme }) => theme.blueYankees};
+
+  @media (max-width: 414px) {
+    font-size: 3rem;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -48,12 +57,18 @@ export const Wrapper = styled.div`
 
   @media (max-width: 414px) {
     flex-direction: column;
+    padding: 0 2.5rem;
+    margin-top: 2rem;
     align-items: center;
   }
 `;
 
 export const Content = styled.div`
   display: flex;
+
+  @media (max-width: 414px) {
+    width: 100%;
+  }
 `;
 
 export const CardColumn = styled.div`
@@ -187,7 +202,8 @@ export const Informations = styled.div`
 
   @media (max-width: 414px) {
     margin-left: 0;
-    width: 90%;
+    margin-bottom: 4rem;
+    width: 100%;
   }
 `;
 
@@ -216,8 +232,8 @@ export const TitleWord = styled.span`
   }
 
   @media (max-width: 414px) {
-    font-size: 6rem;
-    line-height: 5rem;
+    font-size: 6.5rem;
+    line-height: 5.5rem;
   }
 `;
 
@@ -257,6 +273,7 @@ export const Description = styled.div`
   }
 
   @media (max-width: 414px) {
+    display: none;
     font-size: 1.6rem;
     line-height: 2.3rem;
     margin-top: 5rem;
@@ -265,6 +282,15 @@ export const Description = styled.div`
       font-size: 1.2rem;
       margin-right: 1.1rem;
     }
+  }
+`;
+
+export const DescriptionMobile = styled(Description)`
+  display: none;
+
+  @media (max-width: 414px) {
+    display: block;
+    margin-top: 3rem;
   }
 `;
 
@@ -301,6 +327,10 @@ export const Stats = styled.div`
   display: flex;
   gap: 4rem;
   z-index: 2;
+
+  @media (max-width: 414px) {
+    gap: 2rem;
+  }
 `;
 
 export const Stat = styled.div`
@@ -314,18 +344,9 @@ export const Stat = styled.div`
   opacity: 0;
   visibility: hidden;
 
-  span {
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    margin-top: 1rem;
-    display: block;
-    font-weight: 400;
-    color: ${({ theme }) => theme.purpleMedium};
-  }
-
   @media (max-width: 414px) {
-    font-size: 5rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    width: fit-content;
   }
 `;
 
@@ -336,8 +357,7 @@ export const StatNumber = styled.div`
   display: block;
 
   @media (max-width: 414px) {
-    font-size: 5rem;
-    margin-top: 3rem;
+    font-size: 4rem;
   }
 `;
 
@@ -348,6 +368,10 @@ export const StatSubtitle = styled.span`
   display: block;
   font-weight: 400;
   color: ${({ theme }) => theme.purpleMedium};
+
+  @media (max-width: 414px) {
+    font-size: 1.3rem;
+  }
 `;
 
 //////////////////////
@@ -358,13 +382,17 @@ export const ContentPage2 = styled.div`
   top: 0;
   left: 0;
   width: fit-content;
+
+  @media (max-width: 414px) {
+    margin-left: 0;
+    width: 100%;
+  }
 `;
 
-export const TitleContainer = styled.div`
-
+export const Title2Container = styled.div`
 `;
 
-export const TitleLine = styled.p`
+export const Title2Line = styled.p`
   font-size: 4.8rem;
   line-height: 4.5rem;
   display: flex;
@@ -375,6 +403,18 @@ export const TitleLine = styled.p`
   overflow: hidden;
 `;
 
+export const Title2Mobile = styled(Title2Line)`
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  display: none;
+
+
+  @media (max-width: 414px) {
+    display: block;
+  }
+`;
+
 export const Title2Letter = styled.span`
   transform: translateY(100%);
   white-space: nowrap;
@@ -383,6 +423,10 @@ export const Title2Letter = styled.span`
     font-size: 2.4rem;
     line-height: 2rem;
     color: ${({ theme }) => theme.purpleMedium};
+  }
+
+  @media (max-width: 414px) {
+    white-space: normal;
   }
 `;
 
@@ -395,6 +439,11 @@ export const Experiences = styled.div`
   flex-direction: column;
   gap: 4rem;
   overflow: hidden;
+
+  @media (max-width: 414px) {
+    padding-left: 3rem;
+    width: 100%;
+  }
 `;
 
 export const TimelineCover = styled.div`
@@ -405,6 +454,10 @@ export const TimelineCover = styled.div`
   left: 2rem;
   top: 3rem;
   z-index: 1;
+
+  @media (max-width: 414px) {
+    display: none;
+  }
 `;
 
 export const Experience = styled.div`
@@ -439,23 +492,70 @@ export const Experience = styled.div`
     border-radius: 50%;
     z-index: 1;
   }
+
+  @media (max-width: 414px) {
+    &:first-child {
+      &::after {
+        content: '';
+        width: 0.1rem;
+        top: 51%;
+        left: -2.4rem;
+        height: 130rem;
+        z-index: 0;
+        position: absolute;
+        background-color: ${({ theme }) => theme.white};
+      }
+
+      &::before {
+        background-color: ${({ theme }) => theme.purpleMedium};
+      }
+    }
+
+    &::before {
+      content: '';
+      width: 1.3rem;
+      height: 1.3rem;
+      top: 50%;
+      left: -3rem;
+      position: absolute;
+      background-color: ${({ theme }) => theme.white};
+      border-radius: 50%;
+      z-index: 1;
+    }
+  }
 `;
 
 export const ExperienceTitle = styled.p`
   font-size: 3.2rem;
   font-weight: 300;
+
+  @media (max-width: 414px) {
+    font-size: 2.7rem;
+  }
 `;
 
 export const ExperienceCompany = styled.p`
   font-size: 2.8rem;
   color: ${({ theme }) => theme.purpleMedium};
   font-weight: 600;
+
+  @media (max-width: 414px) {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 0.3rem;
+  }
 `;
 
 export const ExperienceSkills = styled.div`
   display: flex;
   margin-top: 1rem;
   gap: 1rem;
+
+  @media (max-width: 414px) {
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    gap: 0.7rem;
+  }
 `;
 
 export const ExperienceSkill = styled.div`
@@ -463,16 +563,30 @@ export const ExperienceSkill = styled.div`
   border: 0.1rem solid ${({ theme }) => theme.white};
   padding: 0.5rem 1rem;
   border-radius: 3rem;
+
+  @media (max-width: 414px) {
+    font-size: 1rem;
+    border-width: 0.08rem;
+  }
 `;
 
 export const ExperienceDescription = styled.p`
   font-size: 1.6rem;
   font-weight: 300;
   margin-top: 2rem;
+
+  @media (max-width: 414px) {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
 `;
 
 export const ExperienceDates = styled.p`
   font-size: 1.8rem;
   margin-top: 1.5rem;
   color: ${({ theme }) => theme.purpleMedium};
+
+  @media (max-width: 414px) {
+    font-size: 1.6rem;
+  }
 `;

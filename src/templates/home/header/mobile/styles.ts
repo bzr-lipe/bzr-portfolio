@@ -73,7 +73,7 @@ export const ScrollWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  bottom: 4rem;
+  bottom: 6rem;
 `;
 
 export const ScrollButton = styled(_ScrollButton)``;

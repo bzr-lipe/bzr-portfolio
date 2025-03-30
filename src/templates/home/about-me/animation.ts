@@ -17,6 +17,7 @@ const SkillsAnimation = () => {
 
   useEffect(() => {
     if(!titleRef.current || !sectionRef.current || !cardRef.current || !subtitleRef.current || !descriptionRef.current || !statsRef.current || !title2Ref.current || !experiencesRef.current || !marqueeRef.current) return;
+    
 
     const sectionTopPadding = parseFloat(window.getComputedStyle(sectionRef.current).paddingTop);
     const marqueeHeight = marqueeRef.current.getBoundingClientRect().height;

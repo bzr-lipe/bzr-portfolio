@@ -14,6 +14,10 @@ export const Skills = styled.div`
     top: 0;
     left: 0;
   }
+
+  @media (max-width: 414px) {
+    display: none;
+  }
 `;
 
 export const Content = styled.div`

@@ -55,6 +55,11 @@ const AboutMe: FC = () => {
                   <S.DescriptionLine key={index}>{line}</S.DescriptionLine>
                 ))}
               </S.Description>
+              <S.DescriptionMobile>
+                {C.page1.description2.map((line, index) => (
+                  line
+                ))}
+              </S.DescriptionMobile>
               <S.Stats ref={statsRef}>
                 {C.page1.stats.map((item, index) => (
                   <S.Stat key={index} data-value={item.value}>
@@ -65,15 +70,16 @@ const AboutMe: FC = () => {
               </S.Stats>
             </S.Informations>
             <S.ContentPage2 ref={page2Ref}>
-              <S.TitleContainer ref={title2Ref}>
+              <S.Title2Container ref={title2Ref}>
                 {C.page2.title.map((line, index) => (
-                  <S.TitleLine key={index} className="title-2-line">
+                  <S.Title2Line key={index} className="title-2-line">
                     {line.map((item, index) => (
                       <S.Title2Letter key={index} className="title-2-letter">{item}</S.Title2Letter>
                     ))}
-                  </S.TitleLine>
+                  </S.Title2Line>
                 ))}
-              </S.TitleContainer>
+                <S.Title2Mobile>Experiences</S.Title2Mobile>
+              </S.Title2Container>
               <S.Experiences ref={experiencesRef}>
                 {C.page2.experiences.map((experience, index) => (
                   <S.Experience key={index} className="experience">
