@@ -3,7 +3,7 @@ import { useRef, useEffect, useState, useLayoutEffect } from "react";
 import gsap from "gsap";
 
 const SkillsAnimation = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
@@ -164,7 +164,6 @@ const SkillsAnimation = () => {
       experiencesTl.add(expTl, index * 0.5);
     });
 
-    console.log(sectionRef.current)
     const page2Tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AboutMe = styled.div`
+export const AboutMe = styled.section`
   height: fit-content;
   width: 100%;
   position: relative;
@@ -390,6 +390,9 @@ export const ContentPage2 = styled.div`
 `;
 
 export const Title2Container = styled.div`
+  @media (max-width: 414px) {
+    display: none;
+  }
 `;
 
 export const Title2Line = styled.p`

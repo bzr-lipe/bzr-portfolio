@@ -78,8 +78,8 @@ const AboutMe: FC = () => {
                     ))}
                   </S.Title2Line>
                 ))}
-                <S.Title2Mobile>Experiences</S.Title2Mobile>
               </S.Title2Container>
+              <S.Title2Mobile>Experiences</S.Title2Mobile>
               <S.Experiences ref={experiencesRef}>
                 {C.page2.experiences.map((experience, index) => (
                   <S.Experience key={index} className="experience">

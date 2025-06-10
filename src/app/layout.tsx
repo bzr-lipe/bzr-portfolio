@@ -1,6 +1,7 @@
 'use client'
 
-import { gotham } from './fonts/gotham';
+import { gotham } from '../styles/fonts/gotham';
+import fontsClassName from '../styles/font';
 import GlobalStyles from "@/styles/global";
 import { GSAPInitializer } from "@/components/atoms/gsap-initializer";
 import StyledComponentsRegistry from "@/lib/registry";
@@ -22,7 +23,7 @@ export default function RootLayout({
 
   return (
     <html lang="pt-br">
-      <body className={gotham.variable} id="body">
+      <body className={fontsClassName} id="body">
         <ThemeProvider theme={theme}>
             <GlobalStyles />
             <GSAPInitializer />

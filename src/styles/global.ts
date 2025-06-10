@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
     transition: background-color 0.3s ease-in, color 0.1s ease-in-out;
+    scroll-behavior: smooth;
   }
 
   html {

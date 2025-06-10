@@ -7,6 +7,9 @@ import Header from "./header";
 import Skills from "./skills";
 import Navbar from "@/components/shared/navbar";
 import AboutMe from "./about-me";
+import Projects from "./projects";
+import Contact from "./contact";
+import Intro from "./Intro";
 
 const SomeComponent = lazy(() => import('./header'));
 
@@ -53,6 +56,15 @@ const HomeTemplate: FC = () => {
       element.addEventListener("mouseenter", handleMouseEnter);
       element.addEventListener("mouseleave", handleMouseLeave);
     });
+
+    const introSection = document.getElementById('intro');
+
+    introSection?.addEventListener('mouseenter', () => {
+      gsap.set(cursorRef.current, {autoAlpha: 0})
+    })
+    introSection?.addEventListener('mouseleave', () => {
+      gsap.set(cursorRef.current, {autoAlpha: 1})
+    })
   }, [theme.purpleMedium]);
 
   return (
@@ -60,8 +72,11 @@ const HomeTemplate: FC = () => {
       <S.Home>
         <Navbar />
         <Header />
-        <Skills />
+        <Intro />
+        {/* <Skills /> */}
         <AboutMe />
+        <Projects />
+        <Contact />
         {/* <S.FantasySection /> */}
         <S.Cursor ref={cursorRef} />
       </S.Home>

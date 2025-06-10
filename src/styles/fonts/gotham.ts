@@ -36,3 +36,5 @@ export const gotham = localFont({
   ],
   display: 'swap'
 });
+
+export default gotham;

@@ -1,10 +1,8 @@
-import { useRef, useEffect, useState, useLayoutEffect } from "react";
-import { useTheme } from 'styled-components'
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Flip from "gsap/dist/Flip";
 import { useWindowSize } from "rooks";
-import { scrollTo } from "@/utils/scroll-to";
 
 const SkillsAnimation = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -76,13 +74,12 @@ const SkillsAnimation = () => {
         const categories = gsap.utils.selector(listRef.current)('.categoryContainer');
   
         categories.forEach((category, index) => {
-          const title = gsap.utils.selector(category)('.titleContainer')
-          const words = gsap.utils.selector(title)('p')
-          const border = gsap.utils.selector(category)('.border')
-          console.log(border)
+          const title = gsap.utils.selector(category)('.titleContainer');
+          const words = gsap.utils.selector(title)('p');
+          const border = gsap.utils.selector(category)('.border');
+
           let widthNum = 40;
           const categoryTl = gsap.timeline({ 
-            // paused: true,
             onComplete: () => {
               if (cardRef.current) {
                 const state = Flip.getState(cardRef.current);
@@ -101,9 +98,8 @@ const SkillsAnimation = () => {
            });
   
           words.forEach((item) => {
-            console.log(item.getBoundingClientRect().width)
             widthNum += item.getBoundingClientRect().width
-          })
+          });
   
           categoryTl.set(title, { width: widthNum });
   

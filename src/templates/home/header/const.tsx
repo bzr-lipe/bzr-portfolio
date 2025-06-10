@@ -1,5 +1,6 @@
 const headerC = {
   title: ["b", "z", "r", ".", "l", "i", "p", "e"],
+  logo: './svgs/logo.svg',
   subtitle: (
     <>
       <span>Front-end</span> Developer

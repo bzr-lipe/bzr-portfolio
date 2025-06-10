@@ -68,6 +68,7 @@ export const CardContainer = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   z-index: 2;
   overflow: hidden;
   width: 100%;
@@ -81,6 +82,11 @@ export const TextWrapper = styled.div`
   @media (max-width: 414px) {
     padding-left: 3.8rem;
   }
+`;
+
+export const Logo = styled.img`
+  width: 43rem;
+  z-index: 2;
 `;
 
 export const Title = styled.div`
